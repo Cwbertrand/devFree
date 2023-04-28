@@ -1,0 +1,117 @@
+site:
+    label: CONFIGURATION-SITE
+    tabs:
+        name:
+            label: SITENAME
+            type: text
+            length: 100
+            value: 'Property Rentals'
+            help: SITENAME-HELP
+        slogan:
+            label: SLOGAN
+            type: text
+            length: 255
+            value: 'Location logements'
+            help: SLOGAN-HELP
+        status:
+            label: SITE-ONLINE
+            type: boolean
+            value: 'true'
+            help: SITE-ONLINE-HELP
+        message:
+            label: MESSAGE-OFFLINE
+            type: text
+            length: 255
+            value: 'Ce site est en maintenance.<br>Merci de revenir ultérieurement.'
+            help: MESSAGE-OFFLINE-HELP
+        template:
+            label: TEMPLATES
+            type: selectList
+            selectList: templates_frontend
+            value: harbor-lights
+            help: TEMPLATES-HELP
+        multilangue:
+            label: MULTI-LANGUES
+            type: boolean
+            value: 'false'
+            help: MULTI-LANGUES-HELP
+        metaDesc:
+            label: META-DESCRIPTION
+            type: text
+            length: 255
+            value: 'Site de locations de logements'
+            help: META-DESCRIPTION-HELP
+        metaKeys:
+            label: META-KEYS
+            type: text
+            length: 255
+            value: 'appartements,booking,logement,reservation,location'
+            help: META-KEYS-HELP
+        time_session:
+            label: TIME-SESSION
+            type: select
+            value: '1800'
+            help: TIME-SESSION-HELP
+            list: { 300: '5 min', 600: '10 min', 900: '15 min', 1800: 30min, 2700: '45 min', 3600: '1 heure', 7200: '2 heures', 14440: '4 heures' }
+        listLimit:
+            label: LIST-LIMIT
+            type: select
+            value: '20'
+            help: LIST-LIMIT-HELP
+            list: { 5: '5', 10: '10', 15: '15', 20: '20', 25: '25', 50: '50', 75: '75', 100: '100' }
+        timezone:
+            label: TIMEZONE
+            type: selectList
+            selectList: timezones
+            value: Europe/Paris
+            help: TIMEZONE-HELP
+mailer:
+    label: CONFIGURATION-MAILER
+    tabs:
+        mailer:
+            label: MAILER-SEND
+            type: select
+            value: mail
+            help: MAILER-SEND-HELP
+            list: { mail: 'Mail PHP', sendinblue: Sendinblue, swiftmailer: Swiftmailer }
+        mailfrom:
+            label: EMAIL
+            type: email
+            length: 80
+            value: admin@admin.fr
+            help: EMAIL-CONFIGURATION-HELP
+        mailreply:
+            label: EMAIL-NOREPLY
+            type: email
+            length: 80
+            value: noreply@admin.fr
+            help: EMAIL-CONFIGURATION-NOREPLY
+        smtpuser:
+            label: SMTP-USER
+            type: text
+            length: 30
+            value: ''
+            help: SMTP-USER-HELP
+        smtppass:
+            label: SMTP-PASSWORD
+            type: password
+            length: 30
+            value: ''
+            help: SMTP-PASSWORD-HELP
+        smtphost:
+            label: SMTP-HOST
+            type: text
+            length: 100
+            value: ''
+            help: SMTP-HOST-HELP
+        smtpsecure:
+            label: SMTP-SECURE
+            type: select
+            value: SSL
+            help: SMTP-SECURE-HELP
+            list: { SSL: SSL, TLS: TLS }
+        smtpport:
+            label: SMTP-PORT
+            type: integer
+            value: '993'
+            help: SMTP-PORT-HELP
