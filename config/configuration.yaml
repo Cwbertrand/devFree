@@ -5,7 +5,7 @@ site:
             label: SITENAME
             type: text
             length: 100
-            value: 'Property Rentals'
+            value: DevFree
             help: SITENAME-HELP
         slogan:
             label: SLOGAN

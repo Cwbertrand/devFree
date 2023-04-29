@@ -309,7 +309,7 @@ h4,
     -webkit-transform: translateY(-50%);
     -ms-transform: translateY(-50%);
     transform: translateY(-50%);
-    font-family: var(--body_font);
+    font-family: 'icomoon';
 }
 
 .site-nav .site-navigation .site-menu .has-children .dropdown {
@@ -588,7 +588,7 @@ h4,
 .site-mobile-menu .site-nav-wrap .arrow-collapse:before {
     font-size: 14px;
     z-index: 20;
-    font-family: var(--body_font);
+    font-family: 'icomoon';
     content: "\e313";
     position: absolute;
     top: 50%;
@@ -1468,7 +1468,7 @@ h4,
 }
 
 .custom-accordion .accordion-item .btn-link:before {
-    font-family: var(--body_font);
+    font-family: 'icomoon';
     content: "\f067";
     position: absolute;
     top: 50%;
@@ -1484,7 +1484,7 @@ h4,
 }
 
 .custom-accordion .accordion-item .btn-link[aria-expanded="true"]:before {
-    font-family: var(--body_font);
+    font-family: 'icomoon';
     content: "\f068";
     position: absolute;
     color: #1A374D;
@@ -1566,7 +1566,7 @@ h4,
 }
 
 .control__indicator:after {
-    font-family: var(--body_font);
+    font-family: 'icomoon';
     content: '\e5ca';
     position: absolute;
     display: none;
@@ -1768,7 +1768,7 @@ h4,
 
 .list-check li:before {
     content: "\e5ca";
-    font-family: var(--body_font);
+    font-family: 'icomoon';
     position: absolute;
     top: -.3rem;
     font-size: 20px;
@@ -1918,7 +1918,7 @@ h4,
     left: 0;
     position: absolute;
     content: "";
-    font-family: var(--body_font);
+    font-family: 'icomoon';
     color: #6998AB;
 }
 

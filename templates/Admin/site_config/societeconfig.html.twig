@@ -1,0 +1,92 @@
+{# @var ea \EasyCorp\Bundle\EasyAdminBundle\Context\AdminContext #}
+{# @var entity \EasyCorp\Bundle\EasyAdminBundle\Dto\EntityDto #}
+
+{% extends ea.templatePath('layout') %}
+{% block configured_stylesheets %}
+    <link rel="stylesheet" href="{{asset('css/adminstyle.css')}}">
+{% endblock %}
+{% block main %}
+    <div class="container">
+        <form class="form_admin" action="{{ path('admin_modifier_societe_config') }}" method="POST" enctype="multipart/form-data">
+            <button class="btn config_btn">Save Changes</button>
+            <nav>
+                <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                    {% for sites, configurations in forms %}
+                    <button class="nav-link text-white" id="nav-{{ sites }}-tab" data-bs-toggle="tab" data-bs-target="#tab-{{ sites }}" type="button"
+                        role="tab" aria-controls="nav-{{ sites }}" aria-selected="true">{{configurations.label}}</button>
+                    {% endfor %}
+                </div>
+            </nav>
+            <div class="tab-content" id="nav-tabContent">
+                {% for sites, configurations in forms %}
+                <div class="tab-pane fade {{ loop.index0 == 0 ? 'show active' : '' }}" id="tab-{{ sites }}" role="tabpanel" aria-labelledby="tab-{{ sites }}-tab">
+                    {% for site, config in configurations.tabs %}
+                    {# {{ dump(config) }} #}
+                    {% if config.type == "text" %}
+                        <div class="py-2">
+                            <p class="mb-0">{{config.label}}</p>
+                            <input class="form-control text-dark" type="text" name="{{ sites }}[tabs][{{ site }}][value]" value="{{config.value}}">
+                            <small class="text-muted small text-justify form-text">{{config.help}}</small>
+                        </div>
+                    {% endif %}
+                    {% if config.type == "url" %}
+                        <div class="py-2">
+                            <p class="mb-0">{{config.label}}</p>
+                            <input class="form-control text-dark" type="text" name="{{ sites }}[tabs][{{ site }}][value]" value="{{config.value}}">
+                            <small class="text-muted small text-justify form-text">{{config.help}}</small>
+                        </div>
+                    {% endif %}
+                    {% if config.type == "email" %}
+                        <div class="py-2">
+                            <p class="mb-0">{{config.label}}</p>
+                            <input class="form-control text-dark" type="email" name="{{ sites }}[tabs][{{ site }}][value]" value="{{config.value}}">
+                            <small class="text-muted small text-justify form-text">{{config.help}}</small>
+                        </div>
+                    {% endif %}
+                    {% if config.type == "integer" %}
+                        <div class="py-2">
+                            <p class="mb-0">{{config.label}}</p>
+                            <input class="form-control text-dark" type="number" name="{{ sites }}[tabs][{{ site }}][value]" value="{{config.value}}">
+                            <small class="text-muted small text-justify form-text">{{config.help}}</small>
+                        </div>
+                    {% endif %}
+                    {% if config.type == "file" %}
+                        <div class="py-2">
+                            {# <p class="mb-0">{{config.label}}</p> #}
+                            <input class="text-dark my-2" type="file" name="{{ sites }}[tabs][{{ site }}][value]" value="{{config.value}}">
+                            <small class="text-muted small text-justify form-text">{{config.help}}</small>
+                            <div id="box-image-0" class="box-image mb-2">
+                                <img src="/{{image}}/{{config.value}}" class="img-fluid" id="choice-image-0" title="" alt="" srcset="">
+                            </div>
+                        </div>
+                    {% endif %}
+                    {% if config.type == "textarea" %}
+                        <div class="py-2">
+                            <p class="mb-0">{{config.label}}</p>
+                            <textarea class="form-control text-dark" type="file" name="{{ sites }}[tabs][{{ site }}][value]" value="{{config.value}}">{{config.value}}</textarea>
+                            <small class="text-muted small text-justify form-text">{{config.help}}</small>
+                        </div>
+                    {% endif %}
+                    {% if config.type == "boolean" %}
+                        <div class="py-2">
+                            <p class="mb-0">{{config.label}}</p>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="{{ sites }}[tabs][{{ site }}][value]" id="{{ sites }}[tabs][{{ site }}][value]-true" value="true" {% if config.value == 'true' %} checked{% endif %}>
+                                    <label class="form-check-label" for="{{ sites }}[tabs][{{ site }}][value]-true">True</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="{{ sites }}[tabs][{{ site }}][value]" id="{{ sites }}[tabs][{{ site }}][value]-false" value="false" {% if config.value == 'false' %} checked{% endif %}>
+                                    <label class="form-check-label" for="{{ sites }}[tabs][{{ site }}][value]-false">False</label>
+                                </div>
+                            <p><small class="text-muted small text-justify form-text">{{config.help}}</small></p>
+                        </div>
+                    {% endif %}
+                    {% endfor %}
+                </div>
+                {% endfor %}
+            </div>
+            
+        </form>
+    </div>
+{% endblock %}
+
