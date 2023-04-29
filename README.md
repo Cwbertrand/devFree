@@ -1,1 +1,2 @@
 - make a boilerplate for twig extension : `symfony console make:twig-extension`
+- install bundle simgpleimage `composer require claviska/simpleimage`

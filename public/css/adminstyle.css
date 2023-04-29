@@ -1,0 +1,46 @@
+.form_admin{
+    position: relative;
+}
+
+.config_btn {
+    background: rgb(178, 168, 168);
+    position: absolute;
+    right: 0;
+    bottom: 100%;
+    margin-bottom: .5rem;
+    transition: all .3s ease-in;
+}
+
+.save_changes_btn{
+    position:absolute;
+    top: 2px;
+    right: 20px;
+    
+}
+
+.number_input {
+    border: 1px solid #000;
+    height: 60px;
+    display: flex;
+}
+.minus,
+.plus{
+    height: 100%;
+    width: 35%;
+    background: transparent;
+    border: none;
+}
+
+.minus
+{
+    border-left: 1px solid black !important;
+}
+.plus
+{
+    border-right: 1px solid black !important;
+}
+
+.minus .fa-minus,
+.plus .fa-plus{
+    font-size: 25px;
+}

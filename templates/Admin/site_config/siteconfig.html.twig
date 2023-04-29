@@ -1,0 +1,86 @@
+{# @var ea \EasyCorp\Bundle\EasyAdminBundle\Context\AdminContext #}
+{# @var entity \EasyCorp\Bundle\EasyAdminBundle\Dto\EntityDto #}
+
+{% extends ea.templatePath('layout') %}
+{% block configured_stylesheets %}
+    <link rel="stylesheet" href="{{asset('css/adminstyle.css')}}">
+{% endblock %}
+{% block main %}
+    <div class="container">
+        <form class="form_admin" action="{{ path('admin_site_modify_config') }}" method="POST">
+            <button class="btn config_btn">Save Changes</button>
+            <div class="row config_yaml position-relative">
+                {% for sites, configurations in forms %}
+                <div class="col-lg-6">
+                    <div class="card mb-4">
+                        <div class="card-header">
+                            <i class="fas fa-pencil-alt text-dark"></i>
+                            <b class="text-dark">{{configurations.label}}</b>
+                        </div>
+                        <div class="card-body text-dark">
+                            {% for site, config  in configurations.tabs %}
+                                {% if config.type == "text" %}
+                                    <div class="py-2">
+                                        <p class="mb-0">{{config.label}}</p>
+                                        <input class="form-control text-dark" type="text" name="{{ sites }}[{{site}}]" value="{{config.value}}">
+                                        <small class="text-muted small text-justify form-text">{{config.help}}</small>
+                                    </div>
+                                {% endif %}
+                                {% if config.type == "email" %}
+                                    <div class="py-2">
+                                        <p class="mb-0">{{config.label}}</p>
+                                        <input class="form-control text-dark" type="email" name="{{ sites }}[{{site}}]" value="{{config.value}}">
+                                        <small class="text-muted small text-justify form-text">{{config.help}}</small>
+                                    </div>
+                                {% endif %}
+                                {% if config.type == "boolean" %}
+                                    <div class="py-2">
+                                        <p class="mb-0">{{config.label}}
+                                            <input class="form-check-input" type="radio" name="{{sites}}[{{site}}]" id="{{config.label}}" value="{{config.value}}"> 
+                                        </p>
+                                        <small class="text-muted small text-justify form-text">{{config.help}}</small>
+                                    </div>
+                                {% endif %}
+                                {% if config.type == "integer" %}
+                                    <div class="py-2">
+                                        <p class="mb-0">{{config.label}}</p>
+                                        <input class="form-control text-dark" type="number" name="{{sites}}[{{site}}]" value="{{config.value}}">
+                                        <small class="text-muted small text-justify form-text">{{config.help}}</small>
+                                    </div>
+                                {% endif %}
+                                {% if config.type == "select" %}
+                                    <div class="py-2">
+                                        <p class="mb-0">{{config.label}}</p>
+                                        <select class="form-select text-dark" aria-label="Default select example">
+                                            <option selected>Select Value</option>
+                                            {% for lists in config.list %}
+                                            <option value="{{lists}}">{{lists}}</option>
+                                            {% endfor %}
+                                        </select>
+                                        <small class="text-muted small text-justify form-text">{{config.help}}</small>
+                                    </div>
+                                {% endif %}
+                                {% if config.type == "selectList" %}
+                                    <div class="py-2">
+                                        <p class="mb-0">{{config.label}}</p>
+                                        <select class="form-select text-dark" aria-label="Default select example">
+                                            <option selected>{{config.value}}</option>
+                                            <option value="{{config.selectList}}">{{config.value}}</option>
+                                            {# {% for lists in config.list %}
+                                            <option value="{{lists}}">{{lists}}</option>
+                                            {% endfor %} #}
+                                        </select>
+                                        <small class="text-muted small text-justify form-text">{{config.help}}</small>
+                                    </div>
+                                {% endif %}
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+                
+            </div>
+        </form>
+    </div>
+{% endblock %}
+
