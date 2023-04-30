@@ -46,6 +46,8 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::section('CONFIGURATION');
         yield MenuItem::linkToRoute('General Configuration', 'fa fa-table-columns', 'admin_site_config');
         yield MenuItem::linkToRoute('Configuration de Societé', 'fa-solid fa-gear', 'admin_societe_config');
+
+        yield MenuItem::section('USER');
         // yield MenuItem::linkToCrud('The Label', 'fas fa-list', EntityClass::class);
     }
 }
