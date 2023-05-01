@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}client/developer{% endblock %}
+{% block signupin %}
+<link rel="stylesheet" href="{{asset('css/signupin.css')}}">
+{% endblock signupin %}
+
+{% block body %}
+<div class="container">
+        <a class="home_in_sign" href="{{path('app_home')}}">home</a>
+        <div class="split left">
+            <img class="client_img" src="{{asset('images/signinup/client.png')}}" alt="client">
+            <h1></h1>
+            <a href="#" class="btn">{{'CLIENT'|trans}}</a>
+        </div>
+        <div class="split right">
+            <img class="developer_img" src="{{asset('images/signinup/developer.jpg')}}" alt="developer">
+            <h1></h1>
+            <a href="#" class="btn">{{'DEV'|trans}}</a>
+        </div>
+    </div>
+{% endblock %}
