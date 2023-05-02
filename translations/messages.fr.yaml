@@ -1,2 +1,10 @@
 CLIENT: Client
 DEV: Développeur
+CONTRAINTS-NOT-BLANK: Cette valeur ne doit pas être vide
+EMAIL-INVALID: L'email n'est pas valide
+PASSWORD: Mot de passe
+CONTRAINTS-PASSWORD: Mettez votre mot de passe
+CONFIRM_PASSWORD: Confirmez mot de passe
+CONTRAINTS-MIN-LENGTH: Votre mot de passe c'est moin
+FIRSTNAME: Nom
+LASTNAME: Prénom

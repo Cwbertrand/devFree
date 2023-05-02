@@ -1,2 +1,4 @@
 CLIENT: Customer
 DEV: Developer
+CONTRAINTS-NOT-BLANK: This value should not be blank
+EMAIL-INVALID: The email isn't valid
