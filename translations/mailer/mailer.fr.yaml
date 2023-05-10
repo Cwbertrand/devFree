@@ -1,0 +1,6 @@
+register:
+  title: Bonjour %fullname%,
+  subject: Veuillez confirmer votre email pour finaliser votre inscription sur %sitename
+  content: 'afin de pouvoir finaliser votre inscription sur %sitename%, veuillez confirmer votre adresse e-mail en cliquant sur le lien suivant:<br><br><a href="%link%">Confirmer mon courriel</a>. Ce lien expirera dans' 
+  success: Votre adresse e-mail a été vérifiée.
+  error: 'Impossible de vérifier votre email'

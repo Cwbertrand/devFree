@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ 'CONTACT'|trans }}{% endblock %}
+
+{% block body %}
+<div class="hero-wrap lazy-loading" data-background="{{ asset('build/' ~ template ~ '/images/bg_1.webp') }}">
+	<div class="overlay"></div>
+	<div class="container">
+		<div class="row no-gutters slider-text d-flex align-itemd-center justify-content-center">
+			<div class="col-md-9 ftco-animate text-center d-flex align-items-end justify-content-center">
+				<div class="text">
+					<p class="breadcrumbs mb-2">
+						<span class="mr-2">
+							<a href="{{ path('app_home') }}">{{ 'HOME'|trans }}</a>
+						</span>
+						<span>{{ 'CONTACT'|trans }}</span>
+					</p>
+					<h1 class="mb-4 bread">Contact Harbor Lights Hotel</h1>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+{% endblock %}

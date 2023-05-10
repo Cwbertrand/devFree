@@ -1,0 +1,6 @@
+register:
+  title: Hi! Please confirm your email!
+  subject: Please Confirm your Email
+  content: 'Please confirm your email address by clicking the following link:<br><br><a href="%link%">Confirm my Email</a>. This link will expire in'
+  success: Your email address has been verified.
+  error: ''

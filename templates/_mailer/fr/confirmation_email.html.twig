@@ -1,0 +1,22 @@
+{# <h1>{{'CONFIRMEMAILTITLE'|trans}}</h1>
+
+<p>
+    {{'CONFIRMATIONMESSAGE'|trans({'%link%':link})|raw}}
+    {{ expiresAtMessageKey|trans(expiresAtMessageData, 'VerifyEmailBundle') }}.
+</p>
+#}
+<h1>Bonjour {{ fullname }},</h1>
+
+<p>
+    Afin de pouvoir finaliser votre inscription sur <strong>{{ sitename }}</strong>,<br>
+    veuillez confirmer votre adresse e-mail en cliquant sur le lien suivant:<br><br>
+    <a href="{{ signedUrl|raw }}">Confirmer mon courriel</a>.
+    Ce lien expirera dans {{ expiresAtMessageKey|trans(expiresAtMessageData, 'VerifyEmailBundle') }}.
+</p>
+{# 
+<p>
+    afin de pouvoir finaliser votre inscription sur {{ sitename }},<br>
+    veuillez confirmer votre adresse e-mail en cliquant sur le lien suivant:<br><br>
+    <a href="{{ link }}">Confirmer mon courriel</a>.
+<p> #}
+    
