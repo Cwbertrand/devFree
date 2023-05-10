@@ -2,6 +2,13 @@
 
 namespace App\Controller\Admin;
 
+use App\Entity\Client;
+use App\Entity\Developer;
+use App\Entity\Experience;
+use App\Entity\GeneralCategory;
+use App\Entity\Language;
+use App\Entity\TechCategory;
+use App\Entity\Technology;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractDashboardController;
@@ -48,6 +55,13 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToRoute('Configuration de Societé', 'fa-solid fa-gear', 'admin_societe_config');
 
         yield MenuItem::section('USER');
+        yield MenuItem::linkToCrud('Client', 'fas fa-list', Client::class);
+        yield MenuItem::linkToCrud('Developer', 'fas fa-list', Developer::class);
+        yield MenuItem::linkToCrud('Experience', 'fas fa-list', Experience::class);
+        yield MenuItem::linkToCrud('Language', 'fas fa-list', Language::class);
+        yield MenuItem::linkToCrud('Technology', 'fas fa-list', Technology::class);
+        yield MenuItem::linkToCrud('Tech Category', 'fas fa-list', TechCategory::class);
+        yield MenuItem::linkToCrud('General Category', 'fas fa-list', GeneralCategory::class);
         // yield MenuItem::linkToCrud('The Label', 'fas fa-list', EntityClass::class);
     }
 }

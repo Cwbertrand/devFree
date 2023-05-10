@@ -50,11 +50,11 @@ class RegistrationFormType extends AbstractType
                 'required' => true,
                 'first_options' => [
                     'label' => false,
-                    'attr' => ['class' => 'input_resize'],
                     'help' => new TranslatableMessage('CONTRAINTS-PASSWORD'),
                     'help_html' => true,
                     'attr' => [
                         'autocomplete' => 'new-password',
+                        'class' => 'input_resize'
                     ],
                 ],
                 'second_options' => [
@@ -63,11 +63,11 @@ class RegistrationFormType extends AbstractType
                 ],
                 'constraints' => [
                     // https://regex101.com/r/jFUJC4/1
-                    // new Regex([
-                    //     'pattern' => '/(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[#?!}{)=+|(@_$%^&*-])[a-zA-Z\d#?!}{)=+|(@_$%^&*-]/',
-                    //     'match' => true,
-                    //     'message' => new TranslatableMessage('CONTRAINT-REGEX-PASSWORD'),
-                    // ]),
+                    new Regex([
+                        'pattern' => '/(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[#?!}{)=+|(@_$%^&*-])[a-zA-Z\d#?!}{)=+|(@_$%^&*-]/',
+                        'match' => true,
+                        'message' => new TranslatableMessage('CONTRAINT-REGEX-PASSWORD'),
+                    ]),
                     new Length([
                         'min' => 6,
                         'minMessage' => new TranslatableMessage('CONTRAINTS-MIN-LENGTH', ['%length%' => 6]),
@@ -77,6 +77,18 @@ class RegistrationFormType extends AbstractType
                 ],
             ])
             ->add('agreeTerms', CheckboxType::class, [
+                'label' => new TranslatableMessage('AGREE-TERMS-AND-PRIVACY-POLICY-AND-COOKIES', [
+                    '%sitename%' => $options['sitename'],
+                    '%terms%' => $options['terms_of_sales'],
+                    '%policy%' => $options['privacy_policy'],
+                ]),
+                'label_attr' => [
+                    'class' => 'custom-control-label',
+                ],
+                'label_html' => true,
+                'attr' => [
+                    'class' => 'custom-control-input',
+                ],
                 'mapped' => false,
                 'constraints' => [
                     new IsTrue([
@@ -91,6 +103,9 @@ class RegistrationFormType extends AbstractType
     {
         $resolver->setDefaults([
             'data_class' => User::class,
+            'sitename' => null,
+            'terms_of_sales' => null,
+            'privacy_policy' => null,
         ]);
     }
 }

@@ -3,11 +3,24 @@
     "license": "proprietary",
     "minimum-stability": "stable",
     "prefer-stable": true,
+    "homepage": "https://github.com/Cwbertrand/devFree", 
+    "description": "Freelance website",
+    "version": "1.0", 
+    "support": {
+        "github": "https://github.com/Cwbertrand/devFree"
+    },
+    "authors": [
+        {
+            "name": "CHU Wung Bertrand",
+            "email": "cwbertrand8@gmail.com"
+        }
+    ],
     "require": {
         "php": ">=8.1",
         "ext-ctype": "*",
         "ext-iconv": "*",
         "claviska/simpleimage": "^4.0",
+        "craue/formflow-bundle": "^3.6",
         "doctrine/annotations": "^2.0",
         "doctrine/doctrine-bundle": "^2.9",
         "doctrine/doctrine-migrations-bundle": "^3.2",

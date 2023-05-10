@@ -80,7 +80,11 @@ class RegistrationController extends AbstractController
     public function register(Request $request, RegisterMailer $registerMailer, EmailVerifier $emailVerifier): Response
     {
         $user = new User();
-        $form = $this->createForm(RegistrationFormType::class, $user);
+        $form = $this->createForm(RegistrationFormType::class, $user, [
+            'sitename' => $this->configuration->get('site', 'name'),
+            'terms_of_sales' => $this->urlGenerator->generate('app_terms_conditions'),
+            'privacy_policy' => $this->urlGenerator->generate('app_privacy_policy'),
+        ]);
         // , [
         //     'sitename' => $this->configuration->get('site', 'name'),
         //     'terms_of_sales' => $this->urlGenerator->generate('app_terms_conditions'),

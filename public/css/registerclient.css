@@ -117,7 +117,7 @@ h2 {
 
 label {
     font-size: .85rem;
-    text-transform: uppercase;
+    /* text-transform: uppercase; */
     color: #ccc;
 }
 
